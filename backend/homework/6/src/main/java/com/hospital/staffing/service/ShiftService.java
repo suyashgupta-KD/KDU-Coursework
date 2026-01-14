@@ -1,38 +1,38 @@
 package com.hospital.staffing.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import com.hospital.staffing.repo.ShiftRepository;
-import com.hospital.staffing.repo.ShiftTypeRepository;
 import com.hospital.staffing.entity.Shift;
-import com.hospital.staffing.model.request.ShiftRequest;
 import com.hospital.staffing.model.response.ShiftResponse;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class ShiftService {
 
     // 1.
-    private final ShiftRepository shiftRepository;
-    private final ShiftTypeRepository shiftTypeRepository;
+    private final ShiftRepository repository;
 
     // 2.
-    public ShiftResponse create(ShiftRequest request) {
-        Shift shift = new Shift();
-        shift.setShiftName(request.getShiftName());
-        shift.setStartDate(request.getStartDate());
-        shift.setEndDate(request.getEndDate());
-        shift.setShiftType(
-                shiftTypeRepository.findById(request.getShiftTypeId()).orElseThrow());
+    public List<ShiftResponse> getTop3NewYearShifts() {
 
-        Shift saved = shiftRepository.save(shift);
+        List<Shift> shifts = repository.findTopShifts(
+                LocalDate.of(2023, 1, 1),
+                LocalDate.of(2023, 1, 25),
+                PageRequest.of(0, 3));
 
-        ShiftResponse response = new ShiftResponse();
-        response.setId(saved.getId());
-        response.setShiftName(saved.getShiftName());
-        response.setStartDate(saved.getStartDate());
-        response.setEndDate(saved.getEndDate());
-        response.setShiftTypeId(saved.getShiftType().getId());
-        return response;
+        // 3.
+        return shifts.stream().map(shift -> {
+            ShiftResponse dto = new ShiftResponse();
+            dto.setId(shift.getId());
+            dto.setShiftName(shift.getShiftName());
+            dto.setStartDate(shift.getStartDate());
+            dto.setEndDate(shift.getEndDate());
+            return dto;
+        }).toList();
     }
 }

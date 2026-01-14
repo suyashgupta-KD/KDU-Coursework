@@ -1,15 +1,11 @@
 package com.hospital.staffing.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.hospital.staffing.model.request.ShiftRequest;
-import com.hospital.staffing.model.response.ShiftResponse;
-import com.hospital.staffing.service.ShiftService;
-
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+import com.hospital.staffing.service.ShiftService;
+import com.hospital.staffing.model.response.ShiftResponse;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/shifts")
@@ -20,8 +16,8 @@ public class ShiftController {
     private final ShiftService service;
 
     // 2.
-    @PostMapping
-    public ShiftResponse create(@RequestBody ShiftRequest request) {
-        return service.create(request);
+    @GetMapping("/top-new-year")
+    public List<ShiftResponse> getTopNewYearShifts() {
+        return service.getTop3NewYearShifts();
     }
 }
