@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
 import com.hospital.staffing.repo.UserRepository;
 import com.hospital.staffing.entity.User;
 import com.hospital.staffing.model.response.*;
-
+import com.hospital.staffing.model.request.UserRequest;
+import com.hospital.staffing.model.response.UserResponse;
 import java.util.List;
 
 @Service
@@ -43,6 +44,22 @@ public class UserService {
         response.setSize(result.getSize());
         response.setTotalElements(result.getTotalElements());
         response.setTotalPages(result.getTotalPages());
+
+        return response;
+    }
+
+    public UserResponse createUser(UserRequest request) {
+
+        User user = new User();
+        user.setName(request.getName());
+        user.setRole(request.getRole());
+
+        User saved = repository.save(user);
+
+        UserResponse response = new UserResponse();
+        response.setId(saved.getId());
+        response.setName(saved.getName());
+        response.setRole(saved.getRole());
 
         return response;
     }
