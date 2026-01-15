@@ -5,11 +5,25 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
+/**
+ * Aspect responsible for enforcing security policies
+ * such as access control and execution timing.
+ *
+ * Uses @Around advice to control method execution.
+ */
 @Slf4j
 @Aspect
 @Component
 public class SecurityAspect {
-
+    /**
+     * Controls access to secured methods.
+     *
+     * Blocks execution if the user is unauthorized.
+     *
+     * @param pjp the proceeding join point
+     * @return result of method execution or null if blocked
+     * @throws Throwable if target method throws an exception
+     */
     // ACCESS CONTROL
     @Around("@annotation(com.smartlock.system.annotation.SecureAccess)")
     public Object guardDoor(ProceedingJoinPoint pjp) throws Throwable {

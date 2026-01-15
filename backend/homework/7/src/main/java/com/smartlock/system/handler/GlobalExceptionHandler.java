@@ -5,6 +5,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Global exception handler responsible for translating
+ * domain exceptions into HTTP responses.
+ *
+ * Ensures that internal errors do not leak stack traces
+ * to API consumers.
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

@@ -7,10 +7,23 @@ import org.springframework.stereotype.Component;
 
 import com.smartlock.system.dto.log.AccessLogDTO;
 
+/**
+ * Aspect responsible for auditing access attempts
+ * to the smart lock system.
+ *
+ * Logs both entry attempts and successful accesses
+ * without interfering with business logic.
+ */
 @Slf4j
 @Aspect
 @Component
 public class AuditAspect {
+
+    /**
+     * Logs an access attempt before the target method executes.
+     *
+     * @param joinPoint the join point providing method context
+     */
 
     @Before("@annotation(com.smartlock.system.annotation.AuditAccess)")
     public void logAccessAttempt(JoinPoint joinPoint) {
@@ -21,6 +34,12 @@ public class AuditAspect {
         log.info("{} - {}", logDTO.getUser(), logDTO.getMessage());
     }
 
+    /**
+     * Logs a successful access after the target method
+     * completes without throwing an exception.
+     *
+     * @param joinPoint the join point providing method context
+     */
     @AfterReturning("@annotation(com.smartlock.system.annotation.AuditAccess)")
     public void logAccessSuccess(JoinPoint joinPoint) {
         String user = (String) joinPoint.getArgs()[0];
