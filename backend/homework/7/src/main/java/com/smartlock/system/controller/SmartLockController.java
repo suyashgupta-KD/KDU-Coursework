@@ -17,4 +17,9 @@ public class SmartLockController {
     public UnlockResponseDTO unlock(@RequestBody UnlockRequestDTO request) {
         return smartLockService.unlock(request.getUser());
     }
+
+    @GetMapping("/battery")
+    public void checkBattery() {
+        smartLockService.checkBattery();
+    }
 }
