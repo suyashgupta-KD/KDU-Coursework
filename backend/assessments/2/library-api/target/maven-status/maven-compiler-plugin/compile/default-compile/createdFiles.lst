@@ -1,0 +1,9 @@
+com/example/library/api/dto/LoanResponse.class
+com/example/library/api/dto/CreateBookRequest.class
+com/example/library/api/error/ErrorCode.class
+com/example/library/api/error/ErrorResponse.class
+com/example/library/api/dto/UserResponse.class
+com/example/library/api/dto/BorrowBookRequest.class
+com/example/library/api/error/ErrorDetail.class
+com/example/library/api/dto/ReturnBookRequest.class
+com/example/library/api/dto/BookResponse.class

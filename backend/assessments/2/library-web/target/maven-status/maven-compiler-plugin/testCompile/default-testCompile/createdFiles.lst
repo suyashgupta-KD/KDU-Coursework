@@ -1,0 +1,5 @@
+com/example/library/web/BookServiceTest.class
+com/example/library/web/ErrorResponseContractTest.class
+com/example/library/web/security/SecurityIntegrationTest.class
+com/example/library/web/LoanServiceTest.class
+com/example/library/web/ConcurrencyMappingTest.class

@@ -1,0 +1,8 @@
+com/example/library/domain/repo/LoanRepository.class
+com/example/library/domain/repo/BookRepository.class
+com/example/library/domain/entity/Book.class
+com/example/library/domain/enums/BookStatus.class
+com/example/library/domain/enums/Role.class
+com/example/library/domain/repo/UserRepository.class
+com/example/library/domain/entity/Loan.class
+com/example/library/domain/entity/User.class

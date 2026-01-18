@@ -1,0 +1,8 @@
+/Users/suyashgupta/assessment-test/library-domain/src/main/java/com/example/library/domain/enums/BookStatus.java
+/Users/suyashgupta/assessment-test/library-domain/src/main/java/com/example/library/domain/repo/LoanRepository.java
+/Users/suyashgupta/assessment-test/library-domain/src/main/java/com/example/library/domain/repo/UserRepository.java
+/Users/suyashgupta/assessment-test/library-domain/src/main/java/com/example/library/domain/entity/Loan.java
+/Users/suyashgupta/assessment-test/library-domain/src/main/java/com/example/library/domain/repo/BookRepository.java
+/Users/suyashgupta/assessment-test/library-domain/src/main/java/com/example/library/domain/entity/User.java
+/Users/suyashgupta/assessment-test/library-domain/src/main/java/com/example/library/domain/enums/Role.java
+/Users/suyashgupta/assessment-test/library-domain/src/main/java/com/example/library/domain/entity/Book.java
