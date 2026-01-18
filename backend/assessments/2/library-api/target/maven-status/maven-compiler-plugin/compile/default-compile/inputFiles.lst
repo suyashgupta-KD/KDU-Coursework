@@ -1,0 +1,9 @@
+/Users/suyashgupta/assessment-test/library-api/src/main/java/com/example/library/api/dto/BookResponse.java
+/Users/suyashgupta/assessment-test/library-api/src/main/java/com/example/library/api/dto/UserResponse.java
+/Users/suyashgupta/assessment-test/library-api/src/main/java/com/example/library/api/dto/LoanResponse.java
+/Users/suyashgupta/assessment-test/library-api/src/main/java/com/example/library/api/dto/CreateBookRequest.java
+/Users/suyashgupta/assessment-test/library-api/src/main/java/com/example/library/api/error/ErrorCode.java
+/Users/suyashgupta/assessment-test/library-api/src/main/java/com/example/library/api/dto/ReturnBookRequest.java
+/Users/suyashgupta/assessment-test/library-api/src/main/java/com/example/library/api/error/ErrorResponse.java
+/Users/suyashgupta/assessment-test/library-api/src/main/java/com/example/library/api/dto/BorrowBookRequest.java
+/Users/suyashgupta/assessment-test/library-api/src/main/java/com/example/library/api/error/ErrorDetail.java
