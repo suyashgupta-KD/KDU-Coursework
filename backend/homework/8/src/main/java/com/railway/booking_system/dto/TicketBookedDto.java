@@ -7,6 +7,7 @@ public class TicketBookedDto implements Serializable {
     public String passengerPhone;
     public String seatNumber;
     public String journey;
+    public int age;
 
     public TicketBookedDto() {
     }
@@ -16,5 +17,6 @@ public class TicketBookedDto implements Serializable {
         this.passengerPhone = passengerPhone;
         this.seatNumber = seatNumber;
         this.journey = journey;
+
     }
 }
