@@ -1,18 +1,19 @@
 package com.railway.booking_system.service;
 
 import com.railway.booking_system.dto.PaymentDto;
-import com.railway.booking_system.messaging.broker.SimpleQueue;
+import com.railway.booking_system.messaging.broker.ManualAckQueue;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PaymentService {
-    private final SimpleQueue simpleQueue;
 
-    public PaymentService(SimpleQueue simpleQueue) {
-        this.simpleQueue = simpleQueue;
+    private final ManualAckQueue<PaymentDto> paymentQueue;
+
+    public PaymentService(ManualAckQueue<PaymentDto> paymentQueue) {
+        this.paymentQueue = paymentQueue;
     }
 
     public void pushPayment(PaymentDto p) {
-        simpleQueue.push(p);
+        paymentQueue.push(p);
     }
 }
