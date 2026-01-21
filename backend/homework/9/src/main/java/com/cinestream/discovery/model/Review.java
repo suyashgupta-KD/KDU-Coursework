@@ -6,13 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * Represents director for a movie in the CineStream catalog.
+ * Represents reviews for a movie in the CineStream catalog.
  */
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class Director {
-    private String id;
-    private String name;
+@AllArgsConstructor
+public class Review {
+    private String comment;
+    private int rating;
 }
