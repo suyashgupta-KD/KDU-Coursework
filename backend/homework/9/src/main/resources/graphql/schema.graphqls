@@ -1,0 +1,10 @@
+type Movie {
+  id: ID!
+  title: String!
+  genre: String!
+  directorId: ID!
+}
+
+type Query {
+  findMovieById(id: ID!): Movie
+}
