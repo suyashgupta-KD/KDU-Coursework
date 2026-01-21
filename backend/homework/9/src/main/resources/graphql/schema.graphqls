@@ -1,8 +1,14 @@
+type Director {
+  id: ID!
+  name: String!
+}
+
 type Movie {
   id: ID!
   title: String!
   genre: String!
   directorId: ID!
+  director: Director
 }
 
 type Query {
