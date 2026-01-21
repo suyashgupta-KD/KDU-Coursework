@@ -1,5 +1,6 @@
 package com.cinestream.discovery.service;
 
+import com.cinestream.discovery.exception.MovieNotFoundException;
 import com.cinestream.discovery.model.Director;
 import com.cinestream.discovery.model.Movie;
 import com.cinestream.discovery.model.Review;
@@ -21,7 +22,7 @@ public class MovieService {
 
     // Exercise 1: Basic implementation to disocver the movie
     public Movie findMovieById(String id) {
-        return movieRepository.findById(id).orElse(null);
+        return movieRepository.findById(id).orElseThrow(() -> new MovieNotFoundException(id));
     }
 
     // Exercise 2: Added implementation to disocver the movie + director

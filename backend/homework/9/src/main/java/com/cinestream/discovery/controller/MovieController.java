@@ -8,11 +8,13 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * GraphQL controller for Movie-related queries and mutations.
  * Acts as the entry point for the CineStream Discovery API.
  */
+@Slf4j
 @Controller
 public class MovieController {
 
@@ -31,6 +33,7 @@ public class MovieController {
 
     @QueryMapping
     public Movie findMovieById(@Argument String id) {
+        log.info("Fetching movie with id={}", id);
         return movieService.findMovieById(id);
     }
 
@@ -55,6 +58,7 @@ public class MovieController {
     public Movie addReview(@Argument String movieId,
             @Argument String comment,
             @Argument int rating) {
+        log.info("Adding review to movieId={}", movieId);
         return movieService.addReview(movieId, comment, rating);
     }
 }
