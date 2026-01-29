@@ -101,3 +101,17 @@ const getEmployeeStats = (...employees) => {
 
   return { totalEmployees, averageAge };
 };
+
+// -----------------------------TASK 4-------------------------------
+
+// -------- Task 4.1 -------
+
+const getAnalytics = (employees) =>
+  employees
+    .map((emp) => emp.skills)
+    .reduce((acc, skills) => {
+      skills.forEach((skill) => {
+        acc[skill] = (acc[skill] || 0) + 1;
+      });
+      return acc;
+    }, {});

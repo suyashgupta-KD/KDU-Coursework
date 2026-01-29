@@ -15,7 +15,7 @@ let employee2 = {
   age: 15,
   salary: 1000,
   department: "Engineering",
-  skills: [],
+  skills: ["PHP"],
   experience: 0,
 };
 let employee3 = {
