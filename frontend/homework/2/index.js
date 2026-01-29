@@ -45,7 +45,7 @@ const getSummary = (employees) =>
 // -------- Task 2.4 -------
 
 const getAverageSalary = (employees) => {
-  let sum = employees.reduce((sum, current) => sum + current.salary, 0);
+  let sum = employees.reduce((sum, { salary }) => sum + salary, 0);
   return sum / employees.length;
 };
 
@@ -63,3 +63,41 @@ let employeesSortedByExperience = employees;
 employeesSortedByExperience.sort(
   (emp1, emp2) => emp2.experience - emp1.experience,
 );
+
+// -----------------------------TASK 3-------------------------------
+
+// -------- Task 3.1 -------
+
+const extractEmployeeInfo = ({ name, department, salary }) => {
+  (name, department, salary);
+};
+
+// -------- Task 3.2 -------
+
+const getTopAndBottomPaid = (employees) => {
+  const sorted = [...employees].sort((a, b) => a.salary - b.salary);
+
+  const [bottomPaid, ...rest] = sorted;
+  const topPaid = rest.at(-1);
+
+  return { topPaid, bottomPaid };
+};
+
+// -------- Task 3.3 -------
+
+const mergeSkills = (employee1, employee2) => [
+  ...new Set([...employee1.skills, ...employee2.skills]),
+];
+
+// -------- Task 3.4 -------
+
+const getEmployeeStats = (...employees) => {
+  const totalEmployees = employees.length;
+
+  const averageAge =
+    totalEmployees === 0
+      ? 0
+      : employees.reduce((sum, { age }) => sum + age, 0) / totalEmployees;
+
+  return { totalEmployees, averageAge };
+};
