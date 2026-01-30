@@ -10,7 +10,7 @@ function Task(title, priority) {
 }
 
 Task.prototype.getInfo = function () {
-  let completionInfo = completed ? "completed" : "not yet completed";
+  let completionInfo = this.completed ? "completed" : "not yet completed";
   return `The task ${this.id} : ${this.title} is of ${this.priority} and is ${completionInfo}`;
 };
 
@@ -51,3 +51,52 @@ Task.prototype.getAllTasksInfo = function (tasks) {
 };
 
 // ================================PART 2===================================
+
+//Task 2.1
+
+function createTaskAsync(title, priority) {
+  console.log("Creating tasks...");
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Task created!");
+      resolve(new Task(title, priority));
+    }, 1000);
+  });
+}
+
+//Task 2.2
+function demonstrateEventLoop() {
+  setTimeout(() => console.log(1), 2000);
+  setTimeout(() => console.log(2), 8000);
+  setTimeout(() => console.log(3), 6000);
+  setTimeout(() => console.log(4), 4000);
+}
+
+//Task 2.3
+
+async function createAndSaveTask(title, priority) {
+  try {
+    const task = await createTaskAsync(title, priority);
+    await createTaskAsync(`${title}--new`, priority);
+    console.log("Task created and saved successfully!");
+    return task;
+  } catch (err) {
+    throw err;
+  }
+}
+
+//Task 2.4
+
+function createMultipleTasksAsync(taskDataArray) {
+  console.log(`Creating ${taskDataArray.length} tasks...`);
+
+  const promises = taskDataArray.map((task) =>
+    createTaskAsync(task.title, task.priority),
+  );
+
+  return Promise.all(promises).then((tasks) => {
+    console.log("All tasks created!");
+    return tasks;
+  });
+}
