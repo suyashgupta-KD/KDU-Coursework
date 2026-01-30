@@ -39,7 +39,9 @@ PriorityTask.prototype = Object.create(Task.prototype);
 PriorityTask.prototype.constructor = PriorityTask;
 
 PriorityTask.prototype.getDueInfo = function () {
-  return `Task ${this.title} is due on ${this.dueDate}`;
+  let info = Task.prototype.getInfo.call(this);
+
+  return info + " and is due by " + this.dueDate;
 };
 
 //Task 1.4
