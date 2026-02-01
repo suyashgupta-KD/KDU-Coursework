@@ -1,0 +1,126 @@
+.tweet-box {
+  display: flex;
+  gap: 14px;
+  padding: 18px 20px;
+  border-bottom: 1px solid $border;
+  position: relative;
+  background: $panel;
+}
+
+.tweet-box .profile-image {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #121212;
+  object-fit: cover;
+}
+
+.tweet-box-body {
+  flex: 1;
+}
+
+.tweet-box-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.tweet-tools {
+  display: flex;
+  gap: 14px;
+}
+
+.tweet-tools img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.85;
+}
+
+.tweet-close {
+  display: none;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+}
+
+.post {
+  display: flex;
+  gap: 14px;
+  padding: 18px 20px;
+  border-bottom: 1px solid $border;
+  animation: fadeUp 0.4s ease;
+}
+
+.post .profile-image {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #121212;
+  object-fit: cover;
+}
+
+.post-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.post-name {
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.post-handle,
+.post-time {
+  color: $muted;
+  margin-left: 4px;
+}
+
+.post-header .dots {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+.post-text {
+  margin: 0 0 14px;
+  line-height: 1.5;
+}
+
+.post-events {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 360px;
+}
+
+.comment-form {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.comments-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.comment {
+  background: #0f0f0f;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 15px;
+  color: $text;
+}

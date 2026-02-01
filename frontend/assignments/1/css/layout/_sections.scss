@@ -1,0 +1,110 @@
+.navigation-section {
+  padding: 20px 12px;
+  border-right: 1px solid $border;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.nav-logo {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.nav-logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.nav-top {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.nav-item img {
+  width: 22px;
+  height: 22px;
+}
+
+.nav-item span {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-item.active {
+  font-weight: 700;
+}
+
+.nav-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.nav-profile:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-profile .profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #121212;
+  object-fit: cover;
+}
+
+.nav-profile .profile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 14px;
+}
+
+.nav-profile .profile-meta span {
+  color: $muted;
+  font-size: 13px;
+}
+
+.nav-profile .dots {
+  width: 18px;
+  height: 18px;
+  margin-left: auto;
+  opacity: 0.6;
+}
+
+.main-feed {
+  border-right: 1px solid $border;
+  min-width: 0;
+}
+
+.right-rail {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
