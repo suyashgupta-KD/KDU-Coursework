@@ -562,11 +562,9 @@ a {
     padding: 12px 14px;
   }
   .tweet-box {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.92);
-    z-index: 20;
+    display: flex;
+    position: static;
+    background: #0a0a0a;
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
@@ -577,24 +575,10 @@ a {
     gap: 12px;
   }
   .tweet-close {
-    display: inline-flex;
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  .tweet-close img {
-    width: 18px;
-    height: 18px;
-    filter: invert(1);
-  }
-  .tweet-box.is-open {
-    display: flex;
+    display: none;
   }
   .floating-tweet-box-icon {
-    display: flex;
+    display: none;
   }
   .post-events {
     max-width: 100%;
