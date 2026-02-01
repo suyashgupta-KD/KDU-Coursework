@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X Homepage</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <nav class="navigation-section">
+        <div class="nav-top">
+          <div class="nav-logo">
+            <img src="icons/white-logo.png" alt="X logo" />
+          </div>
+          <a class="nav-item active" href="#">
+            <img src="icons/home.svg" alt="Home" />
+            <span>Home</span>
+          </a>
+          <a class="nav-item" href="#">
+            <img src="icons/search.svg" alt="Explore" />
+            <span>Explore</span>
+          </a>
+          <a class="nav-item" href="#">
+            <img src="icons/notif-icon.svg" alt="Notifications" />
+            <span>Notifications</span>
+          </a>
+          <a class="nav-item" href="#">
+            <img src="icons/mail-icon.svg" alt="Chat" />
+            <span>Chat</span>
+          </a>
+          <a class="nav-item" href="#">
+            <img src="icons/list-icon.svg" alt="Lists" />
+            <span>Grok</span>
+          </a>
+          <a class="nav-item" href="#">
+            <img src="icons/bookmark-icon.svg" alt="Bookmarks" />
+            <span>Bookmarks</span>
+          </a>
+          <a class="nav-item" href="#">
+            <img src="icons/premium-icon.svg" alt="Premium" />
+            <span>Premium</span>
+          </a>
+          <a class="nav-item" href="#">
+            <img src="icons/profile-icon.svg" alt="Profile" />
+            <span>Profile</span>
+          </a>
+          <a class="nav-item" href="#">
+            <img src="icons/more-icon.svg" alt="More" />
+            <span>More</span>
+          </a>
+          <button class="nav-post-btn">Post</button>
+        </div>
+        <div class="nav-profile">
+          <img class="profile-icon" src="icons/profile-pic.png" alt="Profile" />
+          <div class="profile-meta">
+            <strong>Suyash Gupta</strong>
+            <span>@SUYASHGUPTA0</span>
+          </div>
+          <img class="dots" src="icons/dots-grey.svg" alt="More" />
+        </div>
+      </nav>
+
+      <main class="main-feed">
+        <header class="top-tabs">
+          <div class="tab active">For you</div>
+          <div class="tab">Following</div>
+          <div class="tab">Devhub</div>
+          <div class="tab">Software Engineering</div>
+        </header>
+
+        <section class="tweet-box">
+          <img class="profile-image" src="icons/profile-pic.png" alt="Profile" />
+          <div class="tweet-box-body">
+            <textarea
+              class="post-input"
+              placeholder="What's happening?"
+              rows="2"
+            ></textarea>
+            <div class="tweet-box-actions">
+              <div class="tweet-tools">
+                <img src="icons/gallery-icon.svg" alt="Media" />
+                <img src="icons/gif-icon.svg" alt="GIF" />
+                <img src="icons/bullet-icon.svg" alt="Bullet" />
+                <img src="icons/smiley-icon.svg" alt="Emoji" />
+                <img src="icons/calendar-icon.svg" alt="Calendar" />
+                <img src="icons/location-icon.svg" alt="Location" />
+              </div>
+              <button class="tweet-btn">Post</button>
+            </div>
+          </div>
+          <button class="tweet-close" aria-label="Close tweet box">
+            <img src="icons/back-button.svg" alt="Close" />
+          </button>
+        </section>
+
+        <section class="posts">
+          <article class="post">
+            <img class="profile-image" src="icons/profile-pic.png" alt="Profile" />
+            <div class="post-body">
+              <div class="post-header">
+                <div>
+                  <span class="post-name">Pankaj Wadhwa</span>
+                  <span class="post-handle">@wadhwa_pankaj</span>
+                  <span class="post-time">· Jan 31</span>
+                </div>
+                <img class="dots" src="icons/dots-grey.svg" alt="More" />
+              </div>
+              <p class="post-text">
+                Dear algo, I want to connect with people who are: startup founders,
+                solo founders, vibe coders, devs. Drop a hi, let’s connect!
+              </p>
+              <div class="post-events">
+                <button class="post-event comment-event" type="button">
+                  <img src="icons/comment.svg" alt="Comment" />
+                  <span class="comments-count">12</span>
+                </button>
+                <button class="post-event retweet-event" type="button">
+                  <img class="retweet-icon" src="icons/retweet.svg" alt="Retweet" />
+                  <span class="retweets-count">38</span>
+                </button>
+                <button class="post-event like-post" type="button">
+                  <img class="like-icon" src="icons/like.svg" alt="Like" />
+                  <span class="likes-count">210</span>
+                </button>
+                <button class="post-event share-event" type="button">
+                  <img src="icons/share.svg" alt="Share" />
+                </button>
+              </div>
+              <form class="comment-form">
+                <input
+                  class="comment-input"
+                  type="text"
+                  placeholder="Post your reply"
+                />
+                <button class="comment-btn" type="submit">Reply</button>
+              </form>
+              <div class="comments-list"></div>
+            </div>
+          </article>
+
+          <article class="post">
+            <img class="profile-image" src="icons/profile-pic.png" alt="Profile" />
+            <div class="post-body">
+              <div class="post-header">
+                <div>
+                  <span class="post-name">Priya P</span>
+                  <span class="post-handle">@priyaaa</span>
+                  <span class="post-time">· 23h</span>
+                </div>
+                <img class="dots" src="icons/dots-grey.svg" alt="More" />
+              </div>
+              <p class="post-text">
+                Hot take: building in public isn’t about perfection. It’s about
+                consistency. Tiny steps compound faster than a big launch.
+              </p>
+              <div class="post-events">
+                <button class="post-event comment-event" type="button">
+                  <img src="icons/comment.svg" alt="Comment" />
+                  <span class="comments-count">6</span>
+                </button>
+                <button class="post-event retweet-event" type="button">
+                  <img class="retweet-icon" src="icons/retweet.svg" alt="Retweet" />
+                  <span class="retweets-count">19</span>
+                </button>
+                <button class="post-event like-post" type="button">
+                  <img class="like-icon" src="icons/like.svg" alt="Like" />
+                  <span class="likes-count">120</span>
+                </button>
+                <button class="post-event share-event" type="button">
+                  <img src="icons/share.svg" alt="Share" />
+                </button>
+              </div>
+              <form class="comment-form">
+                <input
+                  class="comment-input"
+                  type="text"
+                  placeholder="Post your reply"
+                />
+                <button class="comment-btn" type="submit">Reply</button>
+              </form>
+              <div class="comments-list"></div>
+            </div>
+          </article>
+
+          <article class="post">
+            <img class="profile-image" src="icons/profile-pic.png" alt="Profile" />
+            <div class="post-body">
+              <div class="post-header">
+                <div>
+                  <span class="post-name">DevHub</span>
+                  <span class="post-handle">@devhub</span>
+                  <span class="post-time">· 12h</span>
+                </div>
+                <img class="dots" src="icons/dots-grey.svg" alt="More" />
+              </div>
+              <p class="post-text">
+                If you’re learning web dev, master layout first: flex, grid, and
+                spacing. Everything else becomes easier after that.
+              </p>
+              <div class="post-events">
+                <button class="post-event comment-event" type="button">
+                  <img src="icons/comment.svg" alt="Comment" />
+                  <span class="comments-count">2</span>
+                </button>
+                <button class="post-event retweet-event" type="button">
+                  <img class="retweet-icon" src="icons/retweet.svg" alt="Retweet" />
+                  <span class="retweets-count">9</span>
+                </button>
+                <button class="post-event like-post" type="button">
+                  <img class="like-icon" src="icons/like.svg" alt="Like" />
+                  <span class="likes-count">67</span>
+                </button>
+                <button class="post-event share-event" type="button">
+                  <img src="icons/share.svg" alt="Share" />
+                </button>
+              </div>
+              <form class="comment-form">
+                <input
+                  class="comment-input"
+                  type="text"
+                  placeholder="Post your reply"
+                />
+                <button class="comment-btn" type="submit">Reply</button>
+              </form>
+              <div class="comments-list"></div>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <aside class="right-rail">
+        <div class="search-card">
+          <img src="icons/search.svg" alt="Search" />
+          <input type="text" placeholder="Search" />
+        </div>
+
+        <div class="card premium">
+          <h3>Subscribe to Premium</h3>
+          <p>Unlock new features and, if eligible, receive a share of revenue.</p>
+          <button class="card-btn">Subscribe</button>
+        </div>
+
+        <div class="card news">
+          <div class="card-header">
+            <h3>Today’s News</h3>
+            <button class="close">×</button>
+          </div>
+          <div class="news-item">
+            <strong>Delivery worker struggles up six flights</strong>
+            <span>1 day ago · News · 4,339 posts</span>
+          </div>
+          <div class="news-item">
+            <strong>India honors Gandhi on 78th death anniversary</strong>
+            <span>3 days ago · News · 104.3K posts</span>
+          </div>
+          <div class="news-item">
+            <strong>Gym trainer stands up to Bajrang Dal</strong>
+            <span>1 day ago · News · 59.5K posts</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <button class="floating-tweet-box-icon" aria-label="Create tweet">
+      <img src="icons/plus-icon.svg" alt="Post" />
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

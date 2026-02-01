@@ -1,0 +1,94 @@
+.nav-post-btn {
+  margin: 12px 0 4px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  background: $blue;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.tweet-btn {
+  background: $blue;
+  border: none;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.card-btn {
+  background: $blue;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.comment-btn {
+  background: transparent;
+  border: 1px solid $border;
+  color: $text;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.post-event {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: $muted;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.post-event:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: $text;
+}
+
+.post-event img {
+  width: 16px;
+  height: 16px;
+}
+
+.like-post.unlike-post {
+  color: $red;
+}
+
+.retweet-event.is-active {
+  color: $green;
+}
+
+.floating-tweet-box-icon {
+  position: fixed;
+  right: 18px;
+  bottom: 20px;
+  background: $blue;
+  border: none;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.floating-tweet-box-icon img {
+  width: 22px;
+  height: 22px;
+}

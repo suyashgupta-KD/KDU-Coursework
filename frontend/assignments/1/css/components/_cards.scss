@@ -1,0 +1,50 @@
+.card {
+  background: #0f0f0f;
+  border: 1px solid $border;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+}
+
+.card p {
+  margin: 0 0 12px;
+  color: $muted;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.news .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.news .close {
+  background: transparent;
+  border: none;
+  color: $muted;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.news .news-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 0;
+  border-top: 1px solid $border;
+}
+
+.news .news-item:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.news .news-item span {
+  color: $muted;
+  font-size: 13px;
+}

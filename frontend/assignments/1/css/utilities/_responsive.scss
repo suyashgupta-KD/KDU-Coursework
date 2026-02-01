@@ -1,0 +1,79 @@
+@media (max-width: $break-lg) {
+  .app {
+    grid-template-columns: 200px minmax(0, 1fr) 280px;
+  }
+}
+
+@media (max-width: $break-md) {
+  .app {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+
+  .right-rail {
+    display: none;
+  }
+}
+
+@media (max-width: $break-sm) {
+  .app {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  .navigation-section {
+    padding: 16px 8px;
+  }
+
+  .nav-item {
+    justify-content: center;
+  }
+
+  .nav-item span {
+    display: none;
+  }
+
+  .nav-post-btn {
+    display: none;
+  }
+
+  .nav-profile {
+    justify-content: center;
+  }
+
+  .nav-profile .profile-meta,
+  .nav-profile .dots {
+    display: none;
+  }
+
+  .top-tabs {
+    gap: 14px;
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+
+  .tweet-box {
+    display: flex;
+    position: static;
+    background: #0a0a0a;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .tweet-box-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tweet-close {
+    display: none;
+  }
+
+  .floating-tweet-box-icon {
+    display: none;
+  }
+
+  .post-events {
+    max-width: 100%;
+  }
+}
