@@ -26,6 +26,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
 
     let message = 'Internal server error';
     let errors: unknown;
+    let error = HttpStatus[status] ?? 'Error';
 
     if (isHttpException) {
       const exceptionResponse = exception.getResponse() as ErrorResponseBody | string;
@@ -42,14 +43,30 @@ export class HttpExceptionFilter implements ExceptionFilter {
         if (!errors && exceptionResponse.errors) {
           errors = exceptionResponse.errors;
         }
+
+        if (exceptionResponse.error) {
+          error = exceptionResponse.error;
+        }
       }
+    }
+
+    const isRouteNotFound =
+      status === HttpStatus.NOT_FOUND &&
+      typeof message === 'string' &&
+      /^Cannot (GET|POST|PUT|PATCH|DELETE)\b/.test(message);
+
+    if (isRouteNotFound) {
+      errors = { detail: message };
+      message = 'Route not found';
     }
 
     response.status(status).json({
       statusCode: status,
       timestamp,
       path: request.url,
+      method: request.method,
       message,
+      error,
       errors
     });
   }
