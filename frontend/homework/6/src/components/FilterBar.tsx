@@ -1,4 +1,5 @@
 import type { Genre } from '../types/book';
+import { genres } from '../types/book';
 import '../styles/components/filter-bar.scss';
 
 type Props = {
@@ -10,16 +11,6 @@ type Props = {
 	onRatingChange: (v: number) => void;
 };
 
-const genres: Genre[] = [
-	'Fiction',
-	'Non-Fiction',
-	'Science',
-	'History',
-	'Biography',
-	'Fantasy',
-	'Mystery',
-	'Romance',
-];
 
 export default function FilterBar({ search, onSearchChange, genre, onGenreChange, rating, onRatingChange }: Props) {
 	return (

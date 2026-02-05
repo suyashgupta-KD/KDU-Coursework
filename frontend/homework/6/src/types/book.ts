@@ -1,3 +1,4 @@
+
 export type Genre =
 	| 'Fiction'
 	| 'Non-Fiction'
@@ -7,6 +8,17 @@ export type Genre =
 	| 'Fantasy'
 	| 'Mystery'
 	| 'Romance';
+
+export const genres: Genre[] = [
+	'Fiction',
+	'Non-Fiction',
+	'Science',
+	'History',
+	'Biography',
+	'Fantasy',
+	'Mystery',
+	'Romance',
+];
 
 export interface Book {
 	id: number;
