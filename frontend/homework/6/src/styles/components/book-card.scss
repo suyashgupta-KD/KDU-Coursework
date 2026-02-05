@@ -1,0 +1,27 @@
+.book-card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 0.5rem;
+  background: #fff;
+  box-shadow: 0 2px 4px #0001;
+  width: 220px;
+  display: inline-block;
+  vertical-align: top;
+}
+.book-card.available {
+  border-color: #4caf50;
+  background: #f6fff6;
+}
+.book-card.unavailable {
+  border-color: #f44336;
+  background: #fff6f6;
+  opacity: 0.7;
+}
+.book-card .status {
+  font-weight: bold;
+  color: #4caf50;
+}
+.book-card.unavailable .status {
+  color: #f44336;
+}
