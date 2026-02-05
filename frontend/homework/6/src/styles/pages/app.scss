@@ -1,0 +1,22 @@
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.app-main {
+  display: flex;
+  gap: 2rem;
+}
+
+.app-main .main-content {
+  flex: 3;
+}
+
+.app-main .sidebar {
+  flex: 1;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+}
