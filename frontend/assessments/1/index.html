@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>KDU Stock Market Dashboard</title>
+  </head>
+  <body>
+    <div class="app">
+      <header class="top">
+        <h1>KDU Stock Market Dashboard</h1>
+      </header>
+
+      <div class="board">
+        <section class="left">
+          <div class="row">
+            <div class="stock">
+              <span class="logo">
+                <img
+                  src="https://mir-s3-cdn-cf.behance.net/projects/404/af1307136664867.Y3JvcCw1NzUzLDQ1MDAsNDIsMA.jpg"
+                  alt="Zomato logo"
+                />
+              </span>
+              <span class="name">Zomato</span>
+            </div>
+
+            <div class="price-box">
+              <span class="label">Price</span>
+              <span id="price" class="price">142.32</span>
+              <span id="arrow" class="arrow">↑</span>
+              <span id="percent" class="percent">0.00%</span>
+            </div>
+
+            <input
+              id="qty"
+              class="qty"
+              type="number"
+              min="1"
+              step="1"
+              placeholder="Enter QTY"
+            />
+
+            <button id="buy" class="btn buy" type="button">Buy</button>
+            <button id="sell" class="btn sell" type="button">Sell</button>
+          </div>
+
+          <div id="graph" class="graph">
+            <div class="grid"></div>
+            <div id="bars" class="bars"></div>
+          </div>
+          <div id="axis" class="axis"></div>
+        </section>
+
+        <section class="right">
+          <h2>History</h2>
+          <ul id="list" class="list"></ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="./scripts/config.js" defer></script>
+    <script src="./scripts/dom.js" defer></script>
+    <script src="./scripts/helpers.js" defer></script>
+    <script src="./scripts/renderPrice.js" defer></script>
+    <script src="./scripts/renderGraph.js" defer></script>
+    <script src="./scripts/renderHistory.js" defer></script>
+    <script src="./scripts/script.js" defer></script>
+  </body>
+</html>
