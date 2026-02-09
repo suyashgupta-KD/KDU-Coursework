@@ -1,0 +1,29 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.container {
+  min-height: 200px;
+  @include flex-center;
+  flex-direction: column;
+}
+
+.message {
+  color: $color-danger;
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.retryButton {
+  background-color: $color-text-primary;
+  color: #ffffff;
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    background-color: #000000;
+  }
+}
