@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Suyash Counter</title>
+  </head>
+  <body>
+    <h1>Counter App (Suyash)</h1>
+    <p>Current Counter: <span id="val">loading...</span></p>
+    <button id="btn">Add Counter</button>
+
+    <script>
+      const API_BASE = "${api_base_url}";
+      const valEl = document.getElementById("val");
+      const btn = document.getElementById("btn");
+
+      async function refresh() {
+        const res = await fetch(`${API_BASE}/counter`);
+        const data = await res.json();
+        valEl.innerText = data.value;
+      }
+
+      btn.addEventListener("click", async () => {
+        await fetch(`${API_BASE}/counter`, { method: "PUT" });
+        await refresh();
+      });
+
+      refresh();
+    </script>
+  </body>
+</html>
