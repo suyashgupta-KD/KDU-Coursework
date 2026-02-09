@@ -1,0 +1,9 @@
+@use "../../styles/mixins" as *;
+
+.container {
+  position: fixed;
+  inset: 0;
+  @include flex-center;
+  flex-direction: column;
+  z-index: 10;
+}
