@@ -1,46 +1,55 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# =====================
+# Terraform
+# =====================
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.*
+crash.log
+crash.*.log
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Terraform variable files (may contain secrets)
+*.tfvars
+*.tfvars.json
 
-### IntelliJ IDEA ###
-.idea/
-*.iws
-*.iml
-*.ipr
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# CLI config
+.terraformrc
+terraform.rc
 
-### VS Code ###
-.vscode/
-.mvn
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
+# =====================
+# Lambda build artifacts
+# =====================
 *.zip
-*.tar.gz
-*.rar
-*.mvn
 
+# =====================
+# Python (Lambda)
+# =====================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+
+# =====================
+# macOS junk
+# =====================
 .DS_Store
+
+# =====================
+# Logs
+# =====================
+*.log
+
+# =====================
+# IDEs
+# =====================
+.vscode/
+.idea/
