@@ -1,0 +1,19 @@
+@use "../../styles/variables" as *;
+
+.container {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.original {
+  font-size: 14px;
+  color: $color-text-secondary;
+  text-decoration: line-through;
+}
+
+.discounted {
+  font-size: 16px;
+  font-weight: 600;
+  color: $color-text-primary;
+}

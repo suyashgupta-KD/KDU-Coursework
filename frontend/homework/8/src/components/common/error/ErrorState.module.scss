@@ -1,0 +1,25 @@
+@use "../../../styles/variables" as *;
+
+.container {
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.message {
+  color: $color-danger;
+  font-size: 14px;
+  text-align: center;
+}
+
+.retryButton {
+  background-color: $color-surface;
+  color: $color-text-primary;
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid $color-border;
+  cursor: pointer;
+}
