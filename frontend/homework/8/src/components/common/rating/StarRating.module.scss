@@ -1,0 +1,17 @@
+@use "../../../styles/variables" as *;
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: $color-text-primary;
+}
+
+.star {
+  color: #f59e0b;
+}
+
+.value {
+  color: $color-text-secondary;
+}
