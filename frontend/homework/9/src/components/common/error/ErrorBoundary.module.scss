@@ -1,0 +1,26 @@
+@use "../../../styles/variables" as *;
+
+.container {
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: $color-text-primary;
+}
+
+.message {
+  margin: 0 0 12px;
+  color: $color-text-secondary;
+}
+
+.refreshButton {
+  border: 1px solid $color-border;
+  background: $color-surface;
+  color: $color-text-primary;
+  border-radius: $radius-sm;
+  padding: 8px 12px;
+  cursor: pointer;
+}

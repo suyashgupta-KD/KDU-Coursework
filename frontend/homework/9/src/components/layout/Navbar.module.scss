@@ -1,0 +1,91 @@
+@use "../../styles/variables" as *;
+
+.header {
+  border-bottom: 1px solid $color-border;
+  background-color: $color-surface;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.search {
+  position: relative;
+  flex: 1 1 220px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 28px 8px 10px;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background-color: $color-surface;
+  color: $color-text-primary;
+  font-size: 14px;
+}
+
+.clearButton {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: $color-text-secondary;
+  cursor: pointer;
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  gap: 12px;
+}
+
+.link {
+  font-size: 14px;
+  color: $color-text-primary;
+  text-decoration: none;
+  padding: 4px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.active {
+  color: $color-text-primary;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.badge {
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: center;
+  background: #ef4444;
+  color: #ffffff;
+  padding: 0 4px;
+}
+
+.cartIcon {
+  font-size: 16px !important;
+}

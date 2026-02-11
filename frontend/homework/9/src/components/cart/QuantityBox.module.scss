@@ -1,0 +1,29 @@
+.container {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #d6d6d6;
+  border-radius: 6px;
+  background: #f6f6f6;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.value {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 600;
+}
