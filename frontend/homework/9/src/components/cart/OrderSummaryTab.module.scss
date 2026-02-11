@@ -1,0 +1,39 @@
+@use "../../styles/variables" as *;
+
+.card {
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: $color-surface;
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+}
+
+.row,
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.totalRow {
+  font-weight: 700;
+}
+
+.divider {
+  border-top: 1px solid $color-border;
+}
+
+.continueButton {
+  margin-top: 8px;
+  border: none;
+  border-radius: $radius-sm;
+  background: #4f64dc;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 12px;
+  cursor: pointer;
+}
