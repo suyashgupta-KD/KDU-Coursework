@@ -16,7 +16,7 @@ const initialState: PersonalDetailsState = {
 };
 
 const personalDetailsSlice = createSlice({
-  name: "bookingTimeline",
+  name: "personalDetails",
   initialState,
   reducers: {
     setPersonalDetails: (state, action: PayloadAction<PersonalDetails>) => {

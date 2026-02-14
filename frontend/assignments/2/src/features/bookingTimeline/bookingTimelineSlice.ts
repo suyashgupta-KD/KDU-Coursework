@@ -9,7 +9,7 @@ interface BookingTimelineState {
 const initialState: BookingTimelineState = {
   timeline: {
     hours: 0,
-    date: new Date(),
+    date: JSON.stringify(new Date()),
   },
 };
 
