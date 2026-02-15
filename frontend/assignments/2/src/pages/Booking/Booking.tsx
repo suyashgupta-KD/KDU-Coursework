@@ -124,6 +124,7 @@ export function Booking() {
 
     if (missingFieldMessage) {
       setFormMessage(missingFieldMessage);
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
@@ -149,6 +150,7 @@ export function Booking() {
       navigate(ROUTES.CONFIRMATION, { state: response });
     } catch {
       setFormMessage("Booking failed. Please try again.");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
