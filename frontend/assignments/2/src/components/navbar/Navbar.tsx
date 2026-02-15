@@ -4,7 +4,7 @@ export function Navbar() {
   return (
     <header className={styles.navbar}>
       <h1>Cleanly</h1>
-      <p>800-710-8420</p>
+      <h1>800-710-8420</h1>
     </header>
   );
 }

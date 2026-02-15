@@ -34,5 +34,5 @@ export type BookingConfig = {
   roomPricing: RoomPricing[];
   extras: Extras[];
   timeSlots: TimeSlot[];
-  additionalRequirements: string;
+  additionalRequirements?: string;
 };

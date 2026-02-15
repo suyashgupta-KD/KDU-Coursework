@@ -1,4 +1,8 @@
+import bathroomImage from "../../assets/bathroom.png";
+import bedroomImage from "../../assets/bedroom.png";
+
 interface RoomCounterProps {
+  id: "bedroom" | "bathroom";
   label: string;
   count: number;
   onIncrease: () => void;
@@ -6,21 +10,27 @@ interface RoomCounterProps {
 }
 
 export function RoomCounter({
+  id,
   label,
   count,
   onIncrease,
   onDecrease,
 }: RoomCounterProps) {
+  const imageSrc = id === "bedroom" ? bedroomImage : bathroomImage;
+
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+    <div>
+      <img src={imageSrc} alt={label} />
       <strong>{label}</strong>
-      <button type="button" onClick={onDecrease}>
-        -
-      </button>
-      <span>{count}</span>
-      <button type="button" onClick={onIncrease}>
-        +
-      </button>
+      <div>
+        <button type="button" onClick={onDecrease}>
+          -
+        </button>
+        <span>{count}</span>
+        <button type="button" onClick={onIncrease}>
+          +
+        </button>
+      </div>
     </div>
   );
 }
