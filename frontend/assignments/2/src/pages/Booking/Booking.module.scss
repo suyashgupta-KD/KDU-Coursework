@@ -1,14 +1,82 @@
+@use "../../styles/variables.scss" as *;
+
 .bookingPage {
   display: grid;
   grid-template-columns: 70% 20%;
   gap: 10%;
+  align-items: start;
+  font-family: $font;
+  padding: 1%;
 }
 
 .bookingDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $border-color;
+}
+
+.optionRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.tabRow > * {
+  flex: 1 1 45%;
 }
 
 .formMessage {
   color: #c62828;
   font-weight: 600;
   margin: 0 0 1rem;
+}
+
+.notesInput {
+  width: 100%;
+  min-height: 6rem;
+}
+
+.termsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  font-size: larger;
+  background-color: rgb(141, 236, 141);
+}
+.submitButton:hover {
+  background-color: rgb(105, 253, 105);
+}
+.summarySection {
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+}
+
+@media (max-width: 48rem) {
+  .bookingPage {
+    grid-template-columns: 1fr;
+  }
+
+  .summarySection {
+    display: none;
+  }
+
+  .tabRow > * {
+    flex-basis: 100%;
+  }
 }

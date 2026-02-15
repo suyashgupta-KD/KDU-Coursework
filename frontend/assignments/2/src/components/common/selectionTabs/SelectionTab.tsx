@@ -15,7 +15,7 @@ function SelectionTab({
   onSelect,
   disabled = false,
 }: SelectionTabProps) {
-  const className = isSelected
+  const className = isSelected && !disabled
     ? `${styles.selectionTab} ${styles.selected}`
     : styles.selectionTab;
 

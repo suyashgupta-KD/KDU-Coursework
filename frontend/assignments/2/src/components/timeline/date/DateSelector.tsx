@@ -18,6 +18,7 @@ export default function DateSelector() {
         onChange={(newValue) =>
           dispatch(setBookingDate(newValue ? newValue.toISOString() : ""))
         }
+        slotProps={{ textField: { fullWidth: true } }}
       />
     </LocalizationProvider>
   );

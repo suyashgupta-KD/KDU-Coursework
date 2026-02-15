@@ -168,9 +168,9 @@ export function Booking() {
         <section className={styles.bookingDetails}>
           {formMessage && <p className={styles.formMessage}>{formMessage}</p>}
 
-          <section>
-            <h2>What type of cleaning?</h2>
-            <div>
+          <section className={styles.formSection}>
+            <h1>What type of cleaning?</h1>
+            <div className={`${styles.optionRow} ${styles.tabRow}`}>
               {config.cleaningTypes.map((item) => (
                 <SelectionTab
                   key={item.id}
@@ -183,9 +183,9 @@ export function Booking() {
             </div>
           </section>
 
-          <section>
-            <h2>How often would you like cleaning?</h2>
-            <div>
+          <section className={styles.formSection}>
+            <h1>How often would you like cleaning?</h1>
+            <div className={`${styles.optionRow} ${styles.tabRow}`}>
               {config.frequencies.map((item) => (
                 <SelectionTab
                   key={item.id}
@@ -198,55 +198,59 @@ export function Booking() {
             </div>
           </section>
 
-          <section>
-            <h2>Tell us about your home</h2>
-            <RoomCounter
-              id="bedroom"
-              label="Bedrooms"
-              count={bedrooms}
-              onIncrease={() => setBedrooms((previous) => previous + 1)}
-              onDecrease={() =>
-                setBedrooms((previous) => Math.max(0, previous - 1))
-              }
-            />
-            <RoomCounter
-              id="bathroom"
-              label="Bathrooms"
-              count={bathrooms}
-              onIncrease={() => setBathrooms((previous) => previous + 1)}
-              onDecrease={() =>
-                setBathrooms((previous) => Math.max(0, previous - 1))
-              }
-            />
+          <section className={styles.formSection}>
+            <h1>Tell us about your home</h1>
+            <div className={styles.optionRow}>
+              <RoomCounter
+                id="bedroom"
+                label="Bedrooms"
+                count={bedrooms}
+                onIncrease={() => setBedrooms((previous) => previous + 1)}
+                onDecrease={() =>
+                  setBedrooms((previous) => Math.max(0, previous - 1))
+                }
+              />
+              <RoomCounter
+                id="bathroom"
+                label="Bathrooms"
+                count={bathrooms}
+                onIncrease={() => setBathrooms((previous) => previous + 1)}
+                onDecrease={() =>
+                  setBathrooms((previous) => Math.max(0, previous - 1))
+                }
+              />
+            </div>
           </section>
 
-          <section>
-            <h2>How many hours?</h2>
-            <HourCounter
-              hours={timeline.hours}
-              increase={() =>
-                dispatch(
-                  setBookingTimeline({
-                    ...timeline,
-                    hours: timeline.hours + 1,
-                  }),
-                )
-              }
-              decrease={() =>
-                dispatch(
-                  setBookingTimeline({
-                    ...timeline,
-                    hours: Math.max(0, timeline.hours - 1),
-                  }),
-                )
-              }
-            />
-            <DateSelector />
+          <section className={styles.formSection}>
+            <h1>Choose hours and date</h1>
+            <div className={styles.optionRow}>
+              <HourCounter
+                hours={timeline.hours}
+                increase={() =>
+                  dispatch(
+                    setBookingTimeline({
+                      ...timeline,
+                      hours: timeline.hours + 1,
+                    }),
+                  )
+                }
+                decrease={() =>
+                  dispatch(
+                    setBookingTimeline({
+                      ...timeline,
+                      hours: Math.max(0, timeline.hours - 1),
+                    }),
+                  )
+                }
+              />
+              <DateSelector />
+            </div>
           </section>
 
-          <section>
-            <h2>When do you like to start?</h2>
-            <div>
+          <section className={styles.formSection}>
+            <h1>When do you like to start?</h1>
+            <div className={`${styles.optionRow} ${styles.tabRow}`}>
               {config.timeSlots.map((item) => (
                 <SelectionTab
                   key={item.id}
@@ -260,9 +264,9 @@ export function Booking() {
             </div>
           </section>
 
-          <section>
-            <h2>Need any extras?</h2>
-            <div>
+          <section className={styles.formSection}>
+            <h1>Need any extras?</h1>
+            <div className={`${styles.optionRow} ${styles.tabRow}`}>
               {config.extras.map((item) => (
                 <SelectionTab
                   key={item.id}
@@ -274,6 +278,7 @@ export function Booking() {
               ))}
             </div>
             <textarea
+              className={styles.notesInput}
               placeholder="Special requirements (optional)"
               value={notes}
               onChange={(event) => setNotes(event.target.value)}
@@ -284,7 +289,7 @@ export function Booking() {
 
           <PersonalDetailsForm value={personal} onChange={onPersonalChange} />
 
-          <label>
+          <label className={styles.termsRow}>
             <input
               type="checkbox"
               checked={agreedToTerms}
@@ -293,11 +298,15 @@ export function Booking() {
             I read and agree to the terms & conditions
           </label>
 
-          <button type="button" onClick={onSubmit}>
+          <button
+            type="button"
+            onClick={onSubmit}
+            className={styles.submitButton}
+          >
             {isSubmitting ? "Submitting..." : "Complete Booking"}
           </button>
         </section>
-        <section>
+        <section className={styles.summarySection}>
           <SummaryTab
             cleaningType={selectedTypeLabel}
             frequency={selectedFrequencyLabel}

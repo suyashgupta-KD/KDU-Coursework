@@ -14,7 +14,7 @@ interface PaymentFormProps {
 export function PaymentForm({ value, onChange }: PaymentFormProps) {
   return (
     <section className={styles.creditCard}>
-      <h3>Credit Card Details</h3>
+      <h1>Credit Card Details</h1>
       <div className={styles.input}>
         <input
           placeholder="Card Number"
