@@ -1,0 +1,49 @@
+@use "../../styles/variables.scss" as *;
+
+.room {
+  width: 13rem;
+  border: 1px solid $border-color;
+  font-family: $font;
+}
+
+.logo {
+  width: 50%;
+  height: 50%;
+  display: block;
+  margin: 28px auto 10px;
+}
+
+.label {
+  display: block;
+  text-align: center;
+  margin-bottom: 10%;
+  font-weight: 700;
+}
+
+.counter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid $border-color;
+}
+
+.button {
+  height: 46px;
+  border: 0;
+  background: #fff;
+  color: $border-color;
+  font-size: 24px;
+}
+
+.button:hover {
+  color: black;
+}
+
+.count {
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  font-weight: 600;
+}

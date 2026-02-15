@@ -1,0 +1,18 @@
+@use "../../styles/variables.scss" as *;
+
+.navbar {
+  top: 0;
+  padding: 1.25%;
+  position: sticky;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: auto;
+  font-family: sans-serif;
+  background-color: $background-color;
+}
+
+.navbar h1 {
+  margin: 0;
+}

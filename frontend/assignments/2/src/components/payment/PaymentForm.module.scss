@@ -1,0 +1,39 @@
+@use "../../styles/variables.scss" as *;
+.creditCard {
+  font-family: $font;
+}
+
+.creditCard h1 {
+  margin: 0 0 0.5rem;
+}
+
+.input {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.input input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid $border-color;
+  border-radius: 0.25rem;
+}
+
+.i1 {
+  grid-column: auto;
+}
+
+.i4 {
+  grid-column: auto;
+}
+
+@media (max-width: 48rem) {
+  .input {
+    grid-template-columns: 1fr;
+  }
+
+  .i1 {
+    grid-column: auto;
+  }
+}

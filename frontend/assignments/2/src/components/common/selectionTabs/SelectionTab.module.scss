@@ -1,0 +1,27 @@
+@use "../../../styles/variables.scss" as *;
+
+.selectionTab {
+  padding: 20px;
+  background-color: white;
+  border: 2px solid $border-color;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.selectionTab:not(:disabled):hover {
+  border-color: $highlight-color;
+}
+
+.selectionTab.selected {
+  border-color: $border-highlight-color;
+  background-color: $background-highlight-color;
+  color: #313131;
+  position: relative;
+}
+
+.selectionTab:disabled {
+  border-color: $border-color;
+  color: grey;
+  background-color: white;
+}
