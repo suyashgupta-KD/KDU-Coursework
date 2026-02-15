@@ -1,14 +1,19 @@
 interface HourCounterProps {
   hours: number;
-  onIncrease: () => void;
-  onDecrease: () => void;
+  increase: () => void;
+  decrease: () => void;
 }
-export function HourCounter({ hours }: HourCounterProps) {
+
+export function HourCounter({ hours, increase, decrease }: HourCounterProps) {
   return (
     <div>
-      <button>-</button>
+      <button type="button" onClick={decrease}>
+        -
+      </button>
       <span>{hours}</span>
-      <button>+</button>
+      <button type="button" onClick={increase}>
+        +
+      </button>
     </div>
   );
 }

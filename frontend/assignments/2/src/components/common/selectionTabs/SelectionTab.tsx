@@ -25,7 +25,6 @@ function SelectionTab({
       className={className}
       onClick={() => onSelect?.(value)}
       disabled={disabled}
-      aria-pressed={isSelected}
     >
       {label}
     </button>
