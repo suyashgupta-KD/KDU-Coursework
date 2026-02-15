@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ROUTES } from "../../routes/routePaths";
 import styles from "./Confirmation.module.scss";
 
@@ -16,7 +16,6 @@ type ConfirmationState = {
 };
 
 export function Confirmation() {
-  const navigate = useNavigate();
   const location = useLocation();
   const state = location.state as ConfirmationState;
   const tableRows: Array<{ label: string; value: string }> = [
@@ -51,7 +50,9 @@ export function Confirmation() {
       <button
         className={styles.backButton}
         type="button"
-        onClick={() => navigate(ROUTES.BOOKING)}
+        onClick={() => {
+          window.location.href = ROUTES.BOOKING;
+        }}
       >
         Back To Booking
       </button>
