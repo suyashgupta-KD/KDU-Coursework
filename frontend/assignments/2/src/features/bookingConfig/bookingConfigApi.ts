@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { BookingConfig } from "../../types/BookingConfig";
+
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export const bookingConfigApi = createApi({
   reducerPath: "bookingConfigApi",
   baseQuery: fetchBaseQuery({
@@ -10,6 +12,8 @@ export const bookingConfigApi = createApi({
   endpoints: (builder) => ({
     getBookingConfig: builder.query<BookingConfig, void>({
       query: () => "/config",
+      transformResponse: (response: { body: string }) =>
+        JSON.parse(response.body) as BookingConfig,
       providesTags: ["BookingConfig"],
     }),
   }),
