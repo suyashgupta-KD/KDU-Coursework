@@ -21,7 +21,7 @@ import { ROUTES } from "../../routes/routePaths";
 import type { Booking } from "../../types/Booking";
 import type { PersonalDetails } from "../../types/PersonalDetails";
 import { calculatePrice } from "../../utils/calculatePrice";
-
+import styles from "./Booking.module.scss";
 const defaultPaymentDetails: PaymentDetails = {
   cardNumber: "",
   expiry: "",
@@ -173,140 +173,147 @@ export function Booking() {
   return (
     <main>
       <Navbar />
+      <div className={styles.bookingPage}>
+        <section className={styles.bookingDetails}>
+          <section>
+            <h2>What type of cleaning?</h2>
+            <div>
+              {config.cleaningTypes.map((item) => (
+                <SelectionTab
+                  key={item.id}
+                  label={item.label}
+                  value={item.id}
+                  isSelected={selectedTypeId === item.id}
+                  onSelect={setSelectedTypeId}
+                />
+              ))}
+            </div>
+          </section>
 
-      <section>
-        <h2>What type of cleaning?</h2>
-        <div>
-          {config.cleaningTypes.map((item) => (
-            <SelectionTab
-              key={item.id}
-              label={item.label}
-              value={item.id}
-              isSelected={selectedTypeId === item.id}
-              onSelect={setSelectedTypeId}
+          <section>
+            <h2>How often would you like cleaning?</h2>
+            <div>
+              {config.frequencies.map((item) => (
+                <SelectionTab
+                  key={item.id}
+                  label={item.label}
+                  value={item.id}
+                  isSelected={selectedFrequencyId === item.id}
+                  onSelect={setSelectedFrequencyId}
+                />
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h2>Tell us about your home</h2>
+            <RoomCounter
+              id="bedroom"
+              label="Bedrooms"
+              count={bedrooms}
+              onIncrease={() => setBedrooms((previous) => previous + 1)}
+              onDecrease={() =>
+                setBedrooms((previous) => Math.max(0, previous - 1))
+              }
             />
-          ))}
-        </div>
-      </section>
-
-      <section>
-        <h2>How often would you like cleaning?</h2>
-        <div>
-          {config.frequencies.map((item) => (
-            <SelectionTab
-              key={item.id}
-              label={item.label}
-              value={item.id}
-              isSelected={selectedFrequencyId === item.id}
-              onSelect={setSelectedFrequencyId}
+            <RoomCounter
+              id="bathroom"
+              label="Bathrooms"
+              count={bathrooms}
+              onIncrease={() => setBathrooms((previous) => previous + 1)}
+              onDecrease={() =>
+                setBathrooms((previous) => Math.max(0, previous - 1))
+              }
             />
-          ))}
-        </div>
-      </section>
+          </section>
 
-      <section>
-        <h2>Tell us about your home</h2>
-        <RoomCounter
-          id="bedroom"
-          label="Bedrooms"
-          count={bedrooms}
-          onIncrease={() => setBedrooms((previous) => previous + 1)}
-          onDecrease={() =>
-            setBedrooms((previous) => Math.max(0, previous - 1))
-          }
-        />
-        <RoomCounter
-          id="bathroom"
-          label="Bathrooms"
-          count={bathrooms}
-          onIncrease={() => setBathrooms((previous) => previous + 1)}
-          onDecrease={() =>
-            setBathrooms((previous) => Math.max(0, previous - 1))
-          }
-        />
-      </section>
-
-      <section>
-        <h2>How many hours?</h2>
-        <HourCounter
-          hours={timeline.hours}
-          increase={() =>
-            dispatch(
-              setBookingTimeline({ ...timeline, hours: timeline.hours + 1 }),
-            )
-          }
-          decrease={() =>
-            dispatch(
-              setBookingTimeline({
-                ...timeline,
-                hours: Math.max(0, timeline.hours - 1),
-              }),
-            )
-          }
-        />
-        <DateSelector />
-      </section>
-
-      <section>
-        <h2>When do you like to start?</h2>
-        <div>
-          {config.timeSlots.map((item) => (
-            <SelectionTab
-              key={item.id}
-              label={item.label}
-              value={item.id}
-              isSelected={selectedSlotId === item.id}
-              onSelect={setSelectedSlotId}
-              disabled={!item.available}
+          <section>
+            <h2>How many hours?</h2>
+            <HourCounter
+              hours={timeline.hours}
+              increase={() =>
+                dispatch(
+                  setBookingTimeline({
+                    ...timeline,
+                    hours: timeline.hours + 1,
+                  }),
+                )
+              }
+              decrease={() =>
+                dispatch(
+                  setBookingTimeline({
+                    ...timeline,
+                    hours: Math.max(0, timeline.hours - 1),
+                  }),
+                )
+              }
             />
-          ))}
-        </div>
-      </section>
+            <DateSelector />
+          </section>
 
-      <section>
-        <h2>Need any extras?</h2>
-        <div>
-          {config.extras.map((item) => (
-            <SelectionTab
-              key={item.id}
-              label={item.label}
-              value={item.id}
-              isSelected={selectedExtras.includes(item.id)}
-              onSelect={onExtraSelect}
+          <section>
+            <h2>When do you like to start?</h2>
+            <div>
+              {config.timeSlots.map((item) => (
+                <SelectionTab
+                  key={item.id}
+                  label={item.label}
+                  value={item.id}
+                  isSelected={selectedSlotId === item.id}
+                  onSelect={setSelectedSlotId}
+                  disabled={!item.available}
+                />
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h2>Need any extras?</h2>
+            <div>
+              {config.extras.map((item) => (
+                <SelectionTab
+                  key={item.id}
+                  label={item.label}
+                  value={item.id}
+                  isSelected={selectedExtras.includes(item.id)}
+                  onSelect={onExtraSelect}
+                />
+              ))}
+            </div>
+            <textarea
+              placeholder="Special requirements (optional)"
+              value={notes}
+              onChange={(event) => setNotes(event.target.value)}
             />
-          ))}
-        </div>
-        <textarea
-          placeholder="Special requirements (optional)"
-          value={notes}
-          onChange={(event) => setNotes(event.target.value)}
-        />
-      </section>
+          </section>
 
-      <PaymentForm value={paymentDetails} onChange={onPaymentChange} />
+          <PaymentForm value={paymentDetails} onChange={onPaymentChange} />
 
-      <PersonalDetailsForm value={personal} onChange={onPersonalChange} />
+          <PersonalDetailsForm value={personal} onChange={onPersonalChange} />
 
-      <SummaryTab
-        cleaningType={selectedTypeLabel}
-        frequency={selectedFrequencyLabel}
-        totalPrice={totalPrice}
-      />
+          <label>
+            <input
+              type="checkbox"
+              checked={agreedToTerms}
+              onChange={(event) => setAgreedToTerms(event.target.checked)}
+            />{" "}
+            I read and agree to the terms & conditions
+          </label>
 
-      <label>
-        <input
-          type="checkbox"
-          checked={agreedToTerms}
-          onChange={(event) => setAgreedToTerms(event.target.checked)}
-        />{" "}
-        I read and agree to the terms & conditions
-      </label>
+          {submitError && <p>{submitError}</p>}
 
-      {submitError && <p>{submitError}</p>}
-
-      <button type="button" onClick={onSubmit} disabled={!canSubmit}>
-        {isSubmitting ? "Submitting..." : "Complete Booking"}
-      </button>
+          <button type="button" onClick={onSubmit} disabled={!canSubmit}>
+            {isSubmitting ? "Submitting..." : "Complete Booking"}
+          </button>
+        </section>
+        <section>
+          <SummaryTab
+            cleaningType={selectedTypeLabel}
+            frequency={selectedFrequencyLabel}
+            totalPrice={totalPrice}
+          />
+        </section>
+      </div>
     </main>
   );
 }

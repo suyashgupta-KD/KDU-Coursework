@@ -1,5 +1,6 @@
 import bathroomImage from "../../assets/bathroom.png";
 import bedroomImage from "../../assets/bedroom.png";
+import styles from "./RoomCounter.module.scss";
 
 interface RoomCounterProps {
   id: "bedroom" | "bathroom";
@@ -19,15 +20,15 @@ export function RoomCounter({
   const imageSrc = id === "bedroom" ? bedroomImage : bathroomImage;
 
   return (
-    <div>
-      <img src={imageSrc} alt={label} />
-      <strong>{label}</strong>
-      <div>
-        <button type="button" onClick={onDecrease}>
+    <div className={styles.room} id={id}>
+      <img src={imageSrc} alt={label} className={styles.logo} />
+      <span className={styles.label}>{label}</span>
+      <div className={styles.counter}>
+        <button type="button" onClick={onDecrease} className={styles.button}>
           -
         </button>
-        <span>{count}</span>
-        <button type="button" onClick={onIncrease}>
+        <span className={styles.count}>{count}</span>
+        <button type="button" onClick={onIncrease} className={styles.button}>
           +
         </button>
       </div>
