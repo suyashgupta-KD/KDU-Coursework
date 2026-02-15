@@ -1,14 +1,14 @@
 @use "../../styles/variables.scss" as *;
 
 .room {
-  width: 220px;
+  width: 13rem;
   border: 1px solid $border-color;
   font-family: $font;
 }
 
 .logo {
-  width: 70px;
-  height: 70px;
+  width: 50%;
+  height: 50%;
   display: block;
   margin: 28px auto 10px;
 }
@@ -16,10 +16,8 @@
 .label {
   display: block;
   text-align: center;
-  margin-bottom: 28px;
-
+  margin-bottom: 10%;
   font-weight: 700;
-  letter-spacing: 0.04em;
 }
 
 .counter {
@@ -36,12 +34,13 @@
   font-size: 24px;
 }
 
-.count {
-  border-left: 1px solid $border-color;
-  border-right: 1px solid $border-color;
+.button:hover {
+  color: black;
 }
 
 .count {
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
   height: 46px;
   display: grid;
   place-items: center;

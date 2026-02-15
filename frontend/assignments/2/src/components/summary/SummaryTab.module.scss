@@ -1,0 +1,23 @@
+@use "../../styles/variables.scss" as *;
+
+.tab {
+  font-family: $font;
+  top: 10%;
+  position: sticky;
+  border: 1px solid;
+  padding: 10px;
+  margin: 10px;
+}
+.summary {
+  border-bottom: 1px solid black;
+}
+.heading {
+  background-color: $background-color;
+  text-align: center;
+  color: white;
+  padding: 10%;
+  width: fit-content;
+}
+.price {
+  font-size: larger;
+}

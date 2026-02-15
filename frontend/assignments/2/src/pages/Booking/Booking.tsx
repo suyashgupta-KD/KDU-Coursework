@@ -21,7 +21,9 @@ import { ROUTES } from "../../routes/routePaths";
 import type { Booking } from "../../types/Booking";
 import type { PersonalDetails } from "../../types/PersonalDetails";
 import { calculatePrice } from "../../utils/calculatePrice";
+import { getFirstMissingFieldMessage } from "../../utils/formValidations";
 import styles from "./Booking.module.scss";
+import { DotLoader } from "react-spinners";
 const defaultPaymentDetails: PaymentDetails = {
   cardNumber: "",
   expiry: "",
@@ -51,7 +53,7 @@ export function Booking() {
   const [paymentDetails, setPaymentDetails] = useState<PaymentDetails>(
     defaultPaymentDetails,
   );
-  const [submitError, setSubmitError] = useState("");
+  const [formMessage, setFormMessage] = useState("");
 
   const totalPrice = calculatePrice({
     config: config ?? null,
@@ -68,32 +70,6 @@ export function Booking() {
   const selectedFrequencyLabel =
     config?.frequencies.find((item) => item.id === selectedFrequencyId)
       ?.label || "";
-
-  const isBookingValid =
-    selectedTypeId !== "" &&
-    selectedFrequencyId !== "" &&
-    selectedSlotId !== "" &&
-    timeline.hours > 0 &&
-    timeline.date !== "";
-
-  const isPaymentValid =
-    paymentDetails.cardNumber.trim() !== "" &&
-    paymentDetails.expiry.trim() !== "" &&
-    paymentDetails.cvv.trim() !== "" &&
-    paymentDetails.nameOnCard.trim() !== "";
-
-  const isPersonalValid =
-    personal.email.trim() !== "" &&
-    personal.phone.trim() !== "" &&
-    personal.address.trim() !== "" &&
-    personal.pincode > 0;
-
-  const canSubmit =
-    isBookingValid &&
-    isPaymentValid &&
-    isPersonalValid &&
-    agreedToTerms &&
-    !isSubmitting;
 
   const onPersonalChange = (field: keyof PersonalDetails, value: string) => {
     if (field === "pincode") {
@@ -131,9 +107,24 @@ export function Booking() {
   };
 
   const onSubmit = async () => {
-    setSubmitError("");
+    setFormMessage("");
 
-    if (!canSubmit || !config || !selectedTypeId || !selectedFrequencyId) {
+    if (!config || isSubmitting) {
+      return;
+    }
+
+    const missingFieldMessage = getFirstMissingFieldMessage({
+      selectedTypeId,
+      selectedFrequencyId,
+      selectedSlotId,
+      timeline,
+      paymentDetails,
+      personal,
+      agreedToTerms,
+    });
+
+    if (missingFieldMessage) {
+      setFormMessage(missingFieldMessage);
       return;
     }
 
@@ -158,12 +149,12 @@ export function Booking() {
       const response = await createBooking(payload).unwrap();
       navigate(ROUTES.CONFIRMATION, { state: response });
     } catch {
-      setSubmitError("Booking failed. Please try again.");
+      setFormMessage("Booking failed. Please try again.");
     }
   };
 
   if (isLoading) {
-    return <p>Loading booking configuration...</p>;
+    return <DotLoader />;
   }
 
   if (isError || !config) {
@@ -175,6 +166,8 @@ export function Booking() {
       <Navbar />
       <div className={styles.bookingPage}>
         <section className={styles.bookingDetails}>
+          {formMessage && <p className={styles.formMessage}>{formMessage}</p>}
+
           <section>
             <h2>What type of cleaning?</h2>
             <div>
@@ -300,9 +293,7 @@ export function Booking() {
             I read and agree to the terms & conditions
           </label>
 
-          {submitError && <p>{submitError}</p>}
-
-          <button type="button" onClick={onSubmit} disabled={!canSubmit}>
+          <button type="button" onClick={onSubmit}>
             {isSubmitting ? "Submitting..." : "Complete Booking"}
           </button>
         </section>

@@ -1,0 +1,32 @@
+@use "../../../styles/variables.scss" as *;
+
+.counter {
+  width: 100%;
+  max-width: 10rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 0.0625rem solid #d1d5db;
+  font-family: $font;
+}
+
+.button {
+  border: 0;
+  background: #fff;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  color: #64748b;
+}
+
+button:hover {
+  color: black;
+}
+
+.value {
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border-left: 0.0625rem solid #d1d5db;
+  border-right: 0.0625rem solid #d1d5db;
+  font-size: 1.125rem;
+  font-weight: 600;
+}

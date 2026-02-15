@@ -1,3 +1,5 @@
+import styles from "./HourCounter.module.scss";
+
 interface HourCounterProps {
   hours: number;
   increase: () => void;
@@ -6,12 +8,12 @@ interface HourCounterProps {
 
 export function HourCounter({ hours, increase, decrease }: HourCounterProps) {
   return (
-    <div>
-      <button type="button" onClick={decrease}>
+    <div className={styles.counter}>
+      <button type="button" onClick={decrease} className={styles.button}>
         -
       </button>
-      <span>{hours}</span>
-      <button type="button" onClick={increase}>
+      <span className={styles.value}>{hours}</span>
+      <button type="button" onClick={increase} className={styles.button}>
         +
       </button>
     </div>
