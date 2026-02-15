@@ -6,6 +6,14 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 type BookingResponse = {
   bookingId: string;
   createdAt: string;
+  typeId?: string;
+  frequencyId?: string;
+  hours?: number;
+  date?: string;
+  bedrooms?: number;
+  bathrooms?: number;
+  extras?: string[];
+  totalPrice?: number;
 };
 
 type WrappedBookingResponse = {

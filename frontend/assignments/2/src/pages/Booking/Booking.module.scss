@@ -9,6 +9,13 @@
   padding: 1%;
 }
 
+.loaderWrapper {
+  --loader-color: #{$background-color};
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
 .bookingDetails {
   display: flex;
   flex-direction: column;

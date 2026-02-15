@@ -1,28 +1,58 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { Navbar } from "../../components/navbar/Navbar";
 import { ROUTES } from "../../routes/routePaths";
+import styles from "./Confirmation.module.scss";
 
 type ConfirmationState = {
-  bookingId?: string;
-  createdAt?: string;
+  bookingId: string;
+  createdAt: string;
+  typeId: string;
+  frequencyId: string;
+  hours: number;
+  date: string;
+  bedrooms: number;
+  bathrooms: number;
+  extras: string[];
+  totalPrice: number;
 };
 
 export function Confirmation() {
   const navigate = useNavigate();
   const location = useLocation();
-  const state = (location.state ?? {}) as ConfirmationState;
+  const state = location.state as ConfirmationState;
+  const tableRows: Array<{ label: string; value: string }> = [
+    { label: "Booking Id", value: state.bookingId },
+    { label: "Created At", value: state.createdAt },
+    { label: "Type Id", value: state.typeId },
+    { label: "Frequency Id", value: state.frequencyId },
+    { label: "Hours", value: String(state.hours) },
+    { label: "Date", value: state.date },
+    { label: "Bedrooms", value: String(state.bedrooms) },
+    { label: "Bathrooms", value: String(state.bathrooms) },
+    { label: "Extras", value: state.extras.join(", ") },
+    { label: "Total Price", value: `$${state.totalPrice}` },
+  ];
 
   return (
-    <main style={{ padding: "16px", maxWidth: "700px", margin: "0 auto" }}>
-      <Navbar />
-
-      <section>
+    <main className={styles.page}>
+      <section className={styles.card}>
         <h2>BOOKING CONFIRMED</h2>
-        <p>Booking ID: {state.bookingId || "Not available"}</p>
-        <p>Created At: {state.createdAt || "Not available"}</p>
+        <table className={styles.table}>
+          <tbody>
+            {tableRows.map((row) => (
+              <tr key={row.label}>
+                <th>{row.label}</th>
+                <td>{row.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </section>
 
-      <button type="button" onClick={() => navigate(ROUTES.BOOKING)}>
+      <button
+        className={styles.backButton}
+        type="button"
+        onClick={() => navigate(ROUTES.BOOKING)}
+      >
         Back To Booking
       </button>
     </main>

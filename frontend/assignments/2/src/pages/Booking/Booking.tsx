@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import type { AppDispatch } from "../../app/store";
 import SelectionTab from "../../components/common/selectionTabs/SelectionTab";
-import { Navbar } from "../../components/navbar/Navbar";
 import { PaymentForm } from "../../components/payment/PaymentForm";
 import type { PaymentDetails } from "../../components/payment/PaymentForm";
 import { PersonalDetailsForm } from "../../components/personalDetails/PersonalDetailsForm";
@@ -154,7 +153,11 @@ export function Booking() {
   };
 
   if (isLoading) {
-    return <DotLoader />;
+    return (
+      <div className={styles.loaderWrapper}>
+        <DotLoader color="var(--loader-color)" />
+      </div>
+    );
   }
 
   if (isError || !config) {
@@ -163,7 +166,6 @@ export function Booking() {
 
   return (
     <main>
-      <Navbar />
       <div className={styles.bookingPage}>
         <section className={styles.bookingDetails}>
           {formMessage && <p className={styles.formMessage}>{formMessage}</p>}
